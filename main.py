@@ -1,43 +1,63 @@
-import zipfile
+import algorythms
+from os import system, name
+
+#clear screen
+def cls():
+	# windows
+	if name == 'nt': 
+		system('cls') 
+    # mac and linux(here, os.name is 'posix') 
+	else: 
+		system('clear') 
 
 TRESSHOLD = 0
-WAR_ANTERIOR = "Desktop.zip"
-WAR_NUEVO = "Desktop1.zip"
+WAR_ANTERIOR = "Desktop.war"
+WAR_NUEVO = "Desktop1.war"
 
-def sizeCompare(warAnterior, warNuevo, tresshold):
-	oldDict = {}
-	newDict = {}
-	diffList = []
+while(True):
+	print(r"""
+╔════════════════════════════════════════════════════════════════════════════════════════════╗
+║  ¨S¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢í  [S¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢SÍï(,       =S¢¢¢¢¢¢¢¢¢¢¢¢1          ²¢¢¢¢¢¢¢¢¢¢¢¢¢) ║
+║  ³MMMMMMMMMMMMMMMMÑ  óMMMMMMMMMMMMMMMMMMÆMÆæ2-    rMMMMMMMMMMMMM®,         ÃMMMMMMMMMMMMMô ║
+║   '''''''''''''''''                                ''''''''''''''          ''''''''''''''  ║
+║  ¨fçççççççççççççççY  {fççççççççççççççççççççççççr  ^fçççççççççççççç×      '9çççççççççççççç[ ║
+║  ¯ÆMMMMMMMMMMMMMMMÑ  üÆMMMMMMMMMMMMMMMMMMMMMMMMÆ² rÆMMMMMMMMMMMMMMð      YÆMMMMMMMMMMMMMMV ║
+║   '''''''''''''''''   ''''''''''''''''''''''''''   ''''''''''''''''       '''''''''''''''  ║
+║       ,ççççççç'           jçççççç;      ¨ççççççç±      /çççççççççççs    Jçççççççççççr      ║
+║       º®®®®®®®'           E®®®®®®S      ,®®®®®®®1      ìÆ®®®®®®®Æ®®®ª  _®®®®Æ®®®®®®®½      ║
+║        '''''''            '''''''        '''''''        ''''''''''''    '''''''''''''      ║
+║       ,öçöçççö'           jöççççççççççççççççççj        \öçööçöÝççöööç:=çöççççSççöççöc      ║
+║       ºÆÆÆÆÆÆÆ'           DÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆ©u'        IÆÆÆÆÆÆQEÆÆÆÆÆþÅÆÆÆÆÆØüÆÆÆÆÆÆÙ      ║
+║        '                                     												 ║
+║       ³ôôôôôôô'           iôôôôôôôôôôôôôôôôôV~         ªôôôôôôv [ôôôôôôôôôô* 7ôôôôôôj      ║
+║       º®®®®®®®'           ñ©©©©©©©©©©©©©©©©©ßÑr        ì®®®®®®À ,©®®®®®®®®®| ö®®®®®®ø      ║
+║                                                                                            ║
+║       ³ôôôôôôô'           iôôôôôô[      ­ôôôôôôô^      ªôôôôôôt   ÏôôôôôôV'  {ôôôôôôj      ║
+║       °©®®®®®®'           Û®®®®®®Ì      ,®®®®®®®n      3®®®®®®È   ì®®®®®®Z   õ®®®®®®a      ║
+║																						 	 ║
+║  ­ôôôôôôôôôôôôôôôôz  1ôôôôôôôôôôôôôôôôôôôôôôôôôô× °ôôôôôôôôôôôt    ~ôôôô|    ±ôôôôôôôôôôô} ║
+║  ,®®®®®®®®®®®®®®®®W  ô®®®®®®®®®®®®®®®®®®®®®®®®®â' r®®®®®®®®®®®È    'å®®¾¨    ç®®®®®®®®®®®ö ║
+║                                                                                            ║
+║  ­ZZòòòòòòòòòòZòòòO  ròòZòòZòòZòZòòòòZòòòòòòV_    |òòòòòòòòòòZí      C9      1ZòòòòòòòòòZ1 ║
+║  ·¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾Ø  ö¾¾¾¾¾¾¾¾¾¾¾¾¾Ñ¾ÑÑ¾Ø§O±¨     >¾¾¾¾¾¾¾¾¾¾¾E      ¡l      S¾¾¾¾¾¾¾¾¾¾¾Ý ║
+╠════════════════════════════════════════════════════════════════════════════════════════════╣
+║									COMPARADOR DE WARS										 ║
+╠════════════════════════════════════════════════════════════════════════════════════════════╣
+║																							 ║
+║							1. Comparador por tamaño de archivos							 ║
+║							2. Comparador por contenido de archivos							 ║
+║							3. Salir														 ║
+║																							 ║
+╚════════════════════════════════════════════════════════════════════════════════════════════╝
 
-	with zipfile.ZipFile(warAnterior, "r") as f:
-		for name in f.namelist():
-			data = f.read(name)
-			oldDict[name] = len(data)
-
-
-	with zipfile.ZipFile(warNuevo, "r") as f:
-		for name in f.namelist():
-			data = f.read(name)
-			if(name in oldDict):
-				if(oldDict[name] - len(data) > tresshold):
-					diffList.append(name)
-				del oldDict[name]
-			else:
-				newDict[name] = len(data)
-
-
-				
-	print("\nArchivos diferentes: ")
-	for f in diffList:
-		print("\t" + f)
-
-	print("\nArchivos existentes en", warAnterior, "pero no en", warNuevo + ":")
-	for f in oldDict:
-		print("\t" + f)
-
-	print("\nArchivos existentes en", warNuevo, "pero no en", warAnterior + ":")
-	for f in newDict:
-		print("\t" + f)
-
-while(true):
-	sizeCompare(WAR_ANTERIOR, WAR_NUEVO, TRESSHOLD)
+Seleccione una opción (1,2,3): """, end='')
+	option = int(input())
+	cls()
+	if(option == 1):
+		algorythms.sizeCompare(WAR_ANTERIOR, WAR_NUEVO, TRESSHOLD)	
+	elif(option == 2):
+		algorythms.dataCompare(WAR_ANTERIOR, WAR_NUEVO, TRESSHOLD)
+	elif(option == 3):
+		exit()
+	input("\n\033[1mPresione enter para continuar...\033[0m ")
+	cls()
