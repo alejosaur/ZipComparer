@@ -1,4 +1,5 @@
 import algorythms
+import sys
 from os import system, name
 
 #clear screen
@@ -10,9 +11,14 @@ def cls():
 	else: 
 		system('clear') 
 
-TRESSHOLD = 2
-WAR_ANTERIOR = "Desktop.war"
-WAR_NUEVO = "Desktop1.war"
+WAR_ANTERIOR = sys.argv[1]
+WAR_NUEVO = sys.argv[2]
+
+try:
+	TRESSHOLD = int(sys.argv[3])
+except ValueError:
+	input("No se ingresó un parámetro correcto para el tresshold, se usará 3 por defecto. \nPresione enter para continuar...")
+	TRESSHOLD = 3
 
 while(True):
 	print(r"""
