@@ -69,8 +69,13 @@ def dataCompare(warAnterior, warNuevo, tresshold):
 			oldData = old.read(name)
 			newData = new.read(name)
 			if not(oldData == newData):
-				#if content is not the same,add to diffDict, with the size of both files
-				diffDict[name] = "Tamaño antiguo: " + str(len(oldData)) + ", Tamaño nuevo:" + str(len(newData))
+				oldSize = len(oldData)
+				newSize = len(newData)
+				#if content is not the same,add to diffDict, with the size of both files, highlighting when size diff is greater than tresshold
+				if abs(newSize - oldSize) > tresshold: 
+					diffDict[name] = "\033[1mTamaño antiguo: " + str(oldSize) + ", Tamaño nuevo:" + str(newSize) + "\033[0m"
+				else:
+					diffDict[name] = "Tamaño antiguo: " + str(oldSize) + ", Tamaño nuevo:" + str(newSize)
 
 		old.close()
 		new.close()
