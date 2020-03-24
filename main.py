@@ -20,6 +20,8 @@ except ValueError:
 	input("No se ingresó un parámetro correcto para el tresshold, se usará 3 por defecto. \nPresione enter para continuar...")
 	TRESSHOLD = 3
 
+cls()
+
 while(True):
 	print(r"""
 ╔════════════════════════════════════════════════════════════════════════════════════════════╗
