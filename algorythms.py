@@ -51,12 +51,12 @@ def sizeCompare(warAnterior, warNuevo, tresshold):
 	except:
 		print("No se pudo realizar la comparación, revise que el nombre de los archivos sea correcto y se encuentren en el mismo directorio que main.py")
 #-------------------------------------------------------------------------------------------------------------------#
-#Compare file by file based on file size (slower, but very precise)
+#Compare file by file based on file content (slower, but very precise)
 def dataCompare(warAnterior, warNuevo, tresshold):
 	oldList = []
 	newList = []
 	sharedList = []
-	diffList = []
+	diffDict = {}
 	try:
 		old = zipfile.ZipFile(warAnterior, "r");
 		new = zipfile.ZipFile(warNuevo, "r")
@@ -66,18 +66,20 @@ def dataCompare(warAnterior, warNuevo, tresshold):
 		sharedList = [x for x in old.namelist() if (x in new.namelist())]#files in both wars
 
 		for name in sharedList:
-			if not(old.read(name) == new.read(name)):
-				#if content is not the same,add to diffList
-				diffList.append(name)
+			oldData = old.read(name)
+			newData = new.read(name)
+			if not(oldData == newData):
+				#if content is not the same,add to diffDict, with the size of both files
+				diffDict[name] = "Tamaño antiguo: " + str(len(oldData)) + ", Tamaño nuevo:" + str(len(newData))
 
 		old.close()
 		new.close()
 
 		#Files existing in both versions, but with diferent content
-		if(diffList):
+		if(diffDict):
 			print("\n\033[1mArchivos diferentes: \033[0m")
-			for f in diffList:
-				print("\t" + f)
+			for f in diffDict:
+				print("\t" + f + " - " + diffDict[f])
 		else:
 			print("\n\033[1mNo hay archivos con contenido diferente.\033[0m")
 
@@ -96,5 +98,5 @@ def dataCompare(warAnterior, warNuevo, tresshold):
 				print("\t" + f)
 		else:
 			print("\n\033[1mNo hay archivos existentes en", warNuevo, "pero no en", warAnterior + ".\033[0m")
-	except:
+	except Exception as e:
 		print("No se pudo realizar la comparación, revise que el nombre de los archivos sea correcto y se encuentren en el mismo directorio que main.py")
