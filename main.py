@@ -10,7 +10,7 @@ def cls():
 	else: 
 		system('clear') 
 
-TRESSHOLD = 0
+TRESSHOLD = 2
 WAR_ANTERIOR = "Desktop.war"
 WAR_NUEVO = "Desktop1.war"
 
@@ -59,5 +59,7 @@ Seleccione una opción (1,2,3): """, end='')
 		algorythms.dataCompare(WAR_ANTERIOR, WAR_NUEVO, TRESSHOLD)
 	elif(option == 3):
 		exit()
+	else:
+		print("Opción inválida, intente nuevamente")
 	input("\n\033[1mPresione enter para continuar...\033[0m ")
 	cls()
