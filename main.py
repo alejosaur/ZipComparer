@@ -49,16 +49,16 @@ while(True):
 ║  ­ZZòòòòòòòòòòZòòòO  ròòZòòZòòZòZòòòòZòòòòòòV_    |òòòòòòòòòòZí      C9      1ZòòòòòòòòòZ1 ║
 ║  ·¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾Ø  ö¾¾¾¾¾¾¾¾¾¾¾¾¾Ñ¾ÑÑ¾Ø§O±¨     >¾¾¾¾¾¾¾¾¾¾¾E      ¡l      S¾¾¾¾¾¾¾¾¾¾¾Ý ║
 ╠════════════════════════════════════════════════════════════════════════════════════════════╣
-║                                    COMPARADOR DE WARS                                      ║
+║                                   COMPARADOR DE ZIP/WAR                                    ║
 ╠════════════════════════════════════════════════════════════════════════════════════════════╣
 ║                                                                                            ║
-║                           1. Comparador por tamaño de archivos                             ║
-║                           2. Comparador por contenido de archivos                          ║
+║                           1. Comparación por tamaño de archivos                             ║
+║                           2. Comparación por contenido de archivos                          ║
 ║                           3. Salir                                                         ║
 ║                                                                                            ║
 ╚════════════════════════════════════════════════════════════════════════════════════════════╝
 
-Seleccione una opción (1,2,3): """, end='')
+Selecciona una opción (1,2,3): """, end='')
 	option = int(input())
 	cls()
 	if(option == 1):
