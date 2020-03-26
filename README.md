@@ -18,7 +18,7 @@ Al ejecutar este comando, la consola mostrará la versión de Python actualmente
 
 ### Instalación 🔧
 
-_El comparador es un script portable, por tanto no tienes que realizar ninguna instalación_
+_El comparador es un script portable, por tanto no tienes que realizar ninguna instalación._
 
 ## Funcionamiento ⚙️
 
@@ -55,7 +55,7 @@ Si quieres hacer una comparación rápida, pero no tan precisa de los archivos, 
 
 Si necesitas una comparación más profunda y precisa, aunque puede consumir un poco más de tiempo y recursos computacionales, selecciona la comparación por contenido; esta te mostrará una lista de todos los archivos que son diferentes, resaltando los que tienen una diferencia en tamaño mayor al tresshold; al igual que la comparación por tamaños, también te mostrará los archivos que no se encuentran en los dos zip/war.
 
-Cuando hayas terminado las comparaciones, selecciona 3 para salir
+Cuando hayas terminado las comparaciones, selecciona 3 para salir.
 
 ## Construido con 🛠️
 
@@ -70,7 +70,7 @@ Se usa [SemVer](http://semver.org/) para el versionado. Para todas las versiones
 * **Alejandro Santamaría** - *Desarrollo* - [alejosaur](https://github.com/alejosaur)
 
 ## Licencia 📄
-Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE.md](LICENSE.md) para detalles
+Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE.md](LICENSE.md) para detalles.
 
 
 ---
