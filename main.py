@@ -46,8 +46,8 @@ while(True):
 ║                             COMPARADOR DE ARCHIVOS COMPRIMIDOS                             ║
 ╠════════════════════════════════════════════════════════════════════════════════════════════╣
 ║                                                                                            ║
-║                           1. Comparador por tamaño de archivos                             ║
-║                           2. Comparador por contenido de archivos                          ║
+║                           1. Comparación por tamaño de archivos                             ║
+║                           2. Comparación por contenido de archivos                          ║
 ║                           3. Salir                                                         ║
 ║                                                                                            ║
 ╚════════════════════════════════════════════════════════════════════════════════════════════╝
