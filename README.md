@@ -55,6 +55,8 @@ Si quieres hacer una comparación rápida, pero no tan precisa de los archivos, 
 
 Si necesitas una comparación más profunda y precisa, aunque puede consumir un poco más de tiempo y recursos computacionales, selecciona la comparación por contenido; esta te mostrará una lista de todos los archivos que son diferentes, resaltando los que tienen una diferencia en tamaño mayor al tresshold; al igual que la comparación por tamaños, también te mostrará los archivos que no se encuentran en los dos zip/war.
 
+Si deseas ver las diferencias exactas entre dos archivos, verás que al final de la lista de diferencias tienes esta opción; para seleccionar el archivo que quieres comparar, ingresa el número que corresponde; verás este número a la izquierda de cada archivo en el cual se encontraron diferencias. Al pulsar enter, verás en pantalla las diferencias encontradas en formato diff unificado (el usado por giff), si quieres saber más de este formato, ingresa [aquí](https://www.it-swarm.dev/es/git/como-leer-la-salida-de-git-diff/968227917/). Si no quieres comparar ningún archivo, ´puedes ingresar 0 y retornar al menú principal.
+
 Cuando hayas terminado las comparaciones, selecciona 3 para salir.
 
 ## Construido con 🛠️
