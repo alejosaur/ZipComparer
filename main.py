@@ -14,8 +14,6 @@ except (ValueError, IndexError):
 
 pr.cls()
 
-print(pr.print_different_files.__doc__)
-
 while(True):
 	print(r"""
 ╔════════════════════════════════════════════════════════════════════════════════════════════╗
